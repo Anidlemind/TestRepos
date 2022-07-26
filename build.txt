@@ -1,0 +1,3 @@
+displayName = Testmod
+author = anidlemind
+version = 0.1
