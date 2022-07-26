@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TestRepos;
 
 namespace TestRepos.Items
 {
@@ -8,16 +9,16 @@ namespace TestRepos.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			// DisplayName.SetDefault("BasicSword"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("OP Sword"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
 			Tooltip.SetDefault("This is a basic modded sword.");
 		}
 
 		public override void SetDefaults()
 		{
-			Item.damage = 50;
+			Item.damage = 50000;
 			Item.DamageType = DamageClass.Melee;
-			Item.width = 40;
-			Item.height = 40;
+			Item.width = 100;
+			Item.height = 100;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.useStyle = 1;
@@ -26,6 +27,7 @@ namespace TestRepos.Items
 			Item.rare = 2;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
+			Item.shoot = ModContent.ProjectileType<Projectiles.BasicProjectile>();
 		}
 
 		public override void AddRecipes()
