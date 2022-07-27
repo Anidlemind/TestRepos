@@ -17,7 +17,7 @@ namespace TestRepos.Projectiles
 		{
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.damage = 15;
-			Projectile.scale = 0.75f;
+			Projectile.scale = 1.25f;
 			Projectile.width = 8;
 			Projectile.height = 8;
 			Projectile.aiStyle = 0;
@@ -32,6 +32,12 @@ namespace TestRepos.Projectiles
 
         public override void AI() //Копипаст от Riptide
         {
+			Player player = Main.player[Projectile.owner];
+			Projectile.direction = player.direction;
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
+			if (Projectile.spriteDirection == -1) {
+				Projectile.rotation += MathHelper.ToRadians(180f);
+			}
 			int dust = Dust.NewDust(Projectile.Center, 1, 1, 15, 0f, 0f, 0, default(Color), 1f);
 			Main.dust[dust].velocity *= 0.3f;
 			Main.dust[dust].scale = (float)Main.rand.Next(100, 135) * 0.013f;

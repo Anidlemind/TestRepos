@@ -5,6 +5,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using TestRepos;
 
+
 namespace TestRepos.Items
 {
 	public class BasicSword : ModItem
@@ -16,7 +17,7 @@ namespace TestRepos.Items
 
 		public override void SetDefaults()
 		{
-			Item.damage = 50;
+			Item.damage = 35;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 100;
 			Item.height = 100;
@@ -38,17 +39,11 @@ namespace TestRepos.Items
 			position += offset;
 			for (int i = -1; i < 2; i++){
 				Vector2 newspd = velocity.RotatedBy(MathHelper.ToRadians(10*i));
-				Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, newspd, type, 15, knockback, player.whoAmI);
+				Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, newspd, type, 12, knockback, player.whoAmI);
 			}
 			return false;
         }
 
-		public override void AddRecipes()
-		{
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DirtBlock, 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.Register();
-		}
+		
 	}
 }
