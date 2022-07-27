@@ -31,7 +31,7 @@ namespace TestRepos.Projectiles
 			Projectile.tileCollide = true;
 		}
 
-        public override void AI() //Копипаст от Riptide
+        public override void AI()
         {
 			Player player = Main.player[Projectile.owner];
 			Projectile.direction = player.direction;
