@@ -1,8 +1,9 @@
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using System;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TestRepos.Projectiles
 {
@@ -23,7 +24,7 @@ namespace TestRepos.Projectiles
 			Projectile.aiStyle = 0;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.penetrate = 2;
+			Projectile.penetrate = 1;
 			Projectile.timeLeft = 50;
 			Projectile.light = 0.25f;
 			Projectile.ignoreWater = true;
@@ -36,17 +37,19 @@ namespace TestRepos.Projectiles
 			Projectile.direction = player.direction;
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
 			if (Projectile.spriteDirection == -1) {
-				Projectile.rotation += MathHelper.ToRadians(180f);
+				Projectile.rotation += MathHelper.ToRadians(270f);
 			}
-			int dust = Dust.NewDust(Projectile.Center, 1, 1, 15, 0f, 0f, 0, default(Color), 1f);
-			Main.dust[dust].velocity *= 0.3f;
-			Main.dust[dust].scale = (float)Main.rand.Next(100, 135) * 0.013f;
-			Main.dust[dust].noGravity = true;
+			Projectile.aiStyle = 0 ;
+			Lighting.AddLight(Projectile.position, 0.2f, 0.2f, 0.6f);
+			Lighting.Brightness(1,1);
+		}
 
-			int dust2 = Dust.NewDust(Projectile.Center, 1, 1, 137, 0f, 0f, 0, default(Color), 1f);
-			Main.dust[dust2].velocity *= 0.3f;
-			Main.dust[dust2].scale = (float)Main.rand.Next(80, 115) * 0.013f;
-			Main.dust[dust2].noGravity = true;
-		} 
+        public override void Kill(int timeLeft)
+        {
+            SoundEngine.PlaySound(SoundID.SplashWeak.WithVolumeScale(0.5f).WithPitchOffset(0.8f), Projectile.position);
+			for (var i = 0 ; i < 6; i ++) {
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 7, 0f, 0f, 0, Color.Aquamarine, 1f);
+			}
+        }
     }
 }

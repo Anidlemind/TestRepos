@@ -20,6 +20,7 @@ namespace TestRepos.Items
 			Item.damage = 35;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 100;
+			Item.scale = 1.5f;
 			Item.height = 100;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
@@ -27,6 +28,7 @@ namespace TestRepos.Items
 			Item.knockBack = 6;
 			Item.value = 10000;
 			Item.rare = 2;
+			Item.knockBack = 10;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.BasicProjectile>();
@@ -39,7 +41,7 @@ namespace TestRepos.Items
 			position += offset;
 			for (int i = -1; i < 2; i++){
 				Vector2 newspd = velocity.RotatedBy(MathHelper.ToRadians(10*i));
-				Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, newspd, type, 12, knockback, player.whoAmI);
+				Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, newspd, type, 20, 2, player.whoAmI);
 			}
 			return false;
         }
