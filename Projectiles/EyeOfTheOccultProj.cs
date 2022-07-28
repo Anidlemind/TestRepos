@@ -23,7 +23,7 @@ namespace TestRepos.Projectiles
 			Projectile.aiStyle = 9;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.penetrate = 2;
+			Projectile.penetrate = 4;
 			Projectile.timeLeft = 100;
 			Projectile.light = 1.25f;
 			Projectile.ignoreWater = true;
