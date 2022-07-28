@@ -14,8 +14,11 @@ namespace TestRepos
 		{
 			if (npc.type == NPCID.KingSlime)
 			{   
-				npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.BasicSword>()));
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.BasicSword>(), 2, 1, 1));
+				npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.BasicSword>()));
+			}
+			if (npc.type == NPCID.EyeofCthulhu)
+			{
+				npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.EyeOfTheOccult>()));
 			}
 		}
 	}
