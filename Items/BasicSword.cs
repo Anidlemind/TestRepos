@@ -42,7 +42,7 @@ namespace TestRepos.Items
 			position += offset;
 			for (int i = -1; i < 2; i++){
 				Vector2 newspd = velocity.RotatedBy(MathHelper.ToRadians(10*i));
-				Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, newspd, type, 20, 2, player.whoAmI);
+				Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, newspd, type, 15, 2, player.whoAmI);
 			}
 			return false;
         }

@@ -39,7 +39,7 @@ namespace TestRepos.Items
         {
 			Vector2 offset = new Vector2(velocity.X * 2, velocity.Y * 2);
 			position += offset;
-			Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, velocity, type, 30, 4, player.whoAmI);
+			Projectile.NewProjectile(Projectile.GetSource_NaturalSpawn(), position, velocity, type, 35, 4, player.whoAmI);
 			return false;
         }
 
