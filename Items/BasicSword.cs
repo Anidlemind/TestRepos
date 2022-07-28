@@ -17,7 +17,7 @@ namespace TestRepos.Items
 
 		public override void SetDefaults()
 		{
-			Item.damage = 35;
+			Item.damage = 25;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 100;
 			Item.scale = 1.5f;
